@@ -1,0 +1,7 @@
+node_modules
+android
+.vscode
+.git
+.vercel
+.vercel_ignore
+*.log

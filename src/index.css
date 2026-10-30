@@ -1,0 +1,292 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════
+   ACE PARENT PORTAL — Modern Theme System & Design Tokens
+   ═══════════════════════════════════════════════════════════ */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+}
+
+html, body, #root {
+  background-color: #000000;
+}
+
+:root {
+  --radius: 1.25rem;
+  --background: #000000;
+  --foreground: #f8fafc;
+  --card: #141a26;
+  --card-foreground: #f8fafc;
+  --popover: #141a26;
+  --popover-foreground: #f8fafc;
+  --primary: #f8fafc;
+  --primary-foreground: #0b0f17;
+  --secondary: #1e2638;
+  --secondary-foreground: #f8fafc;
+  --muted: #1e2638;
+  --muted-foreground: #94a3b8;
+  --accent: #242e42;
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: rgba(248, 250, 252, 0.2);
+  --surface: #141a26;
+  --surface-2: #1e2638;
+  --success: #10b981;
+  --success-foreground: #d1fae5;
+  --warning: #f59e0b;
+  --warning-foreground: #fef3c7;
+  --danger: #ef4444;
+  --danger-foreground: #fee2e2;
+}
+
+.light {
+  --background: #f8f9fa;
+  --foreground: #16171d;
+  --card: #ffffff;
+  --card-foreground: #16171d;
+  --popover: #ffffff;
+  --popover-foreground: #16171d;
+  --primary: #16171d;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f3f5;
+  --secondary-foreground: #16171d;
+  --muted: #f1f3f5;
+  --muted-foreground: #5c6370;
+  --accent: #e9ecef;
+  --accent-foreground: #16171d;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: rgba(22, 23, 29, 0.2);
+  --surface: #f1f3f5;
+  --surface-2: #e9ecef;
+  --success: #10b981;
+  --success-foreground: #064e3b;
+  --warning: #f59e0b;
+  --warning-foreground: #78350f;
+  --danger: #ef4444;
+  --danger-foreground: #7f1d1d;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #f8fafc;
+  --card: #141a26;
+  --card-foreground: #f8fafc;
+  --popover: #141a26;
+  --popover-foreground: #f8fafc;
+  --primary: #f8fafc;
+  --primary-foreground: #0b0f17;
+  --secondary: #1e2638;
+  --secondary-foreground: #f8fafc;
+  --muted: #1e2638;
+  --muted-foreground: #94a3b8;
+  --accent: #242e42;
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: rgba(248, 250, 252, 0.2);
+  --surface: #141a26;
+  --surface-2: #1e2638;
+  --success: #10b981;
+  --success-foreground: #d1fae5;
+  --warning: #f59e0b;
+  --warning-foreground: #fef3c7;
+  --danger: #ef4444;
+  --danger-foreground: #fee2e2;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  body,
+  header,
+  nav,
+  main,
+  section,
+  article,
+  aside,
+  div,
+  span,
+  p,
+  h1,
+  h2,
+  h3,
+  button,
+  input,
+  .bg-background,
+  .bg-card,
+  .bg-popover,
+  .text-foreground,
+  .border-border {
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    min-height: 100dvh;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* ── Input & Native Android Selection Handle Fix ── */
+  /* Prevent black box artifacts behind selection handles / cursor drop on Android */
+  input,
+  textarea {
+    caret-color: #06d6e0;
+    -webkit-user-select: text !important;
+    user-select: text !important;
+    transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+  }
+
+  /* Explicit bright teal text selection highlight in both light and dark mode (never black) */
+  ::selection {
+    background-color: rgba(6, 214, 224, 0.35) !important;
+    color: inherit !important;
+  }
+  ::-moz-selection {
+    background-color: rgba(6, 214, 224, 0.35) !important;
+    color: inherit !important;
+  }
+
+  /* Prevent autofill from styling inputs with default browser colors */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px var(--color-background) inset !important;
+    -webkit-text-fill-color: var(--color-foreground) !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  /* ── Button micro-interactions ── */
+  button {
+    transition: transform 120ms ease, opacity 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
+  }
+
+  button:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ACE PORTAL — Keyframe Animations
+   ═══════════════════════════════════════════════════════════ */
+
+/* Spinner for loading buttons */
+@keyframes ace-spin {
+  to { transform: rotate(360deg); }
+}
+.ace-spin {
+  animation: ace-spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes ace-shake {
+  0%, 100% { transform: translateX(0); }
+  15%       { transform: translateX(-7px); }
+  30%       { transform: translateX(6px); }
+  45%       { transform: translateX(-5px); }
+  60%       { transform: translateX(4px); }
+  75%       { transform: translateX(-2px); }
+  90%       { transform: translateX(1px); }
+}
+.ace-shake, .animate-shake {
+  animation: ace-shake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Shimmer for skeleton loaders */
+@keyframes ace-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.ace-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 25%,
+    var(--color-border) 50%,
+    var(--color-accent) 75%
+  );
+  background-size: 200% auto;
+  animation: ace-shimmer 1.6s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Utilities
+   ═══════════════════════════════════════════════════════════ */
+
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { scrollbar-width: none; }
+
+/* Safe area insets for notched devices */
+.safe-top { padding-top: max(0.75rem, env(safe-area-inset-top, 0px)); }
+.safe-bottom { padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px)); }
+
+/* Keyboard-aware login form: shrink padding when viewport is compressed */
+@media (max-height: 620px) {
+  .login-keyboard-aware {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
